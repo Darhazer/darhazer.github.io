@@ -2,14 +2,14 @@
 layout: post
 title: "PHPUnit Anti Patterns: at() expectations"
 description: ""
-category: 
+category: phpunit 
 tags: []
 ---
 {% include JB/setup %}
 
 # PHPUnit Anti-Patterns: at() expectations
 
-Too often I see `at()` expectation used in test cases. Usually it's not expectation aut all - it is used just to provide different return values on the same method, when called with different parameters. Fortunatelly this can be easily refactored with `returnValueMap` - it makes clear what is the return value for what input and best of all it doesn't depend on the order of the execution. `returnValueMap` has its own quircks, I have to admit, but it's easily to extend it and overcome them. I did it (see my [pull request](https://github.com/sebastianbergmann/phpunit-mock-objects/pull/254)), but even if you don't want to extend phpunit-mock-objects, there's other methods that can solve the problem with returning different values for different calls - see `onConsecutiveCalls` and `returnCallback`. 
+Too often I see `at()` expectation used in test cases. Usually it's not expectation at all - it is used just to provide different return values on the same method, when called with different parameters. Fortunatelly this can be easily refactored with `returnValueMap` - it makes clear what is the return value for what input and best of all it doesn't depend on the order of the execution. `returnValueMap` has its own quircks, I have to admit, but it's easily to extend it and overcome them. I did it (see my [pull request](https://github.com/sebastianbergmann/phpunit-mock-objects/pull/254)), but even if you don't want to extend phpunit-mock-objects, there's other methods that can solve the problem with returning different values for different calls - see `onConsecutiveCalls` and `returnCallback`. 
 
 So what are the problem with `at()` expectation, it's (seemingly) legit use and the proposed solution?
 
